@@ -18,4 +18,4 @@
 
 - did one support request, we've two flag in the Country model for the showing the country in the profile of the user for country of expertise and country of residence, `active` and `default`. Both are boolean fields and in order to show them in the country dropdown, we need to make the `default` to be `True` and `active` remains `True` (don't know why), `active` most likely coming Abstract model classes.
 
--
+- in reports, survey credits are being called using prefetching so for every survey, we're getting all the credits one by one, need to optimize this going forward.
