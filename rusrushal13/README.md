@@ -19,3 +19,7 @@
 - did one support request, we've two flag in the Country model for the showing the country in the profile of the user for country of expertise and country of residence, `active` and `default`. Both are boolean fields and in order to show them in the country dropdown, we need to make the `default` to be `True` and `active` remains `True` (don't know why), `active` most likely coming Abstract model classes.
 
 - in reports, survey credits are being called using prefetching so for every survey, we're getting all the credits one by one, need to optimize this going forward.
+
+## 22 May 2024
+
+- AWS guard duty is a service that monitors the AWS environment and alerts when it detects suspicious activity. Same like guard duty, AWS WAF is a web application firewall that helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. For access control, we can use AWS IAM as well as AWS cognito for authentication which could provide the secure access to the resources. The S3 bucket policies also helps us in securing the bucket and the objects in it. AWS WAF also keep monitoring the traffic and block the malicious traffic.
