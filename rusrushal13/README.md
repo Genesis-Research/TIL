@@ -23,3 +23,7 @@
 ## 22 May 2024
 
 - AWS guard duty is a service that monitors the AWS environment and alerts when it detects suspicious activity. Same like guard duty, AWS WAF is a web application firewall that helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. For access control, we can use AWS IAM as well as AWS cognito for authentication which could provide the secure access to the resources. The S3 bucket policies also helps us in securing the bucket and the objects in it. AWS WAF also keep monitoring the traffic and block the malicious traffic.
+
+## 23 May 2024
+
+- Went through a blog today related to [parsing instead of validation statements](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/). It was kind of eye opening in terms where the type system shines, I'm currently refactoring the survey credits tests and we've bunch of validation errors in the codebase for the same so we've tests which tests these validations/bad inputs/edge cases. If we can parse the input instead of validating it then we could have avoided these tests as well as these validations in the codebase itself. Mypy does a nice job. [Found a usecase for the same which `urllib3` library did](https://sethmlarson.dev/tests-arent-enough-case-study-after-adding-types-to-urllib3)
