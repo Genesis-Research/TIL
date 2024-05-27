@@ -31,3 +31,9 @@
 ## 24 May 2024
 
 - the survey models tests are mostly around charges being calculated and unit testing of them. After the current changes around manual charging the credits, these calculation are bit futile in terms of the tests as we're not exactly calculating the charges based on the milestones of the survey. I've kept the survey models tests as it is for now as unit tests are always good to have but we need to revisit them in future.
+
+## 25 May 2024
+
+- There was small issue with my terminal around locale and because of that the terminal wasn't acting the way it used to be. I found an issue on the zsh too regarding the same: [Strange issue with Mac OS X terminal](https://github.com/ohmyzsh/ohmyzsh/issues/1602). Even the name suggests it's strange but the solution points to me that it should be more common even though name suggests differently. The issue was with the locale settings and I had to add the locale settings in my `.zshrc` file to fix the issue with `en-us.utf-8` locale.
+
+- the survey model tests are been pushed and started looking at the create authoring survey tests.
