@@ -27,3 +27,7 @@
 ## 23 May 2024
 
 - Went through a blog today related to [parsing instead of validation statements](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/). It was kind of eye opening in terms where the type system shines, I'm currently refactoring the survey credits tests and we've bunch of validation errors in the codebase for the same so we've tests which tests these validations/bad inputs/edge cases. If we can parse the input instead of validating it then we could have avoided these tests as well as these validations in the codebase itself. Mypy does a nice job. [Found a usecase for the same which `urllib3` library did](https://sethmlarson.dev/tests-arent-enough-case-study-after-adding-types-to-urllib3)
+
+## 24 May 2024
+
+- the survey models tests are mostly around charges being calculated and unit testing of them. After the current changes around manual charging the credits, these calculation are bit futile in terms of the tests as we're not exactly calculating the charges based on the milestones of the survey. I've kept the survey models tests as it is for now as unit tests are always good to have but we need to revisit them in future.
