@@ -32,8 +32,36 @@
 
 - the survey models tests are mostly around charges being calculated and unit testing of them. After the current changes around manual charging the credits, these calculation are bit futile in terms of the tests as we're not exactly calculating the charges based on the milestones of the survey. I've kept the survey models tests as it is for now as unit tests are always good to have but we need to revisit them in future.
 
-## 25 May 2024
+## 27 May 2024
 
 - There was small issue with my terminal around locale and because of that the terminal wasn't acting the way it used to be. I found an issue on the zsh too regarding the same: [Strange issue with Mac OS X terminal](https://github.com/ohmyzsh/ohmyzsh/issues/1602). Even the name suggests it's strange but the solution points to me that it should be more common even though name suggests differently. The issue was with the locale settings and I had to add the locale settings in my `.zshrc` file to fix the issue with `en-us.utf-8` locale.
 
 - the survey model tests are been pushed and started looking at the create authoring survey tests.
+
+## 28 May 2024
+
+- pytest have weird behaviour when it comes ignoring multiple files, instead of passing them together in the command line, we need to pass them one by one. I had to pass them one by one to ignore them. So if you wanna ignore multiple files you've to pass `--ignore` flag along with the file name multiple times.
+
+```shell
+pytest --ignore=tests/test_survey_models.py --ignore=tests/test_survey_authoring.py
+```
+
+## 30 May 2024
+
+- gone through one talk today related to ORMs and the pg queries behind it (<https://www.youtube.com/watch?v=Ph2hXpTW-Zg&t=52s>). I was expecting bit more from the talk but learnt one two config details around the `postgresql.conf`
+
+```shell
+# logs all the statements which are taking more than 0ms to execute
+# so we can see the slow queries more than 1000ms in the logs too
+log_min_duration_statement = 0
+
+# logs all the statements but there are multiple options in there such as
+# none, ddl, mod, all
+# by default it's none which means it won't log any statement
+# ddl means it will log all the ddl statements that means create, alter, drop etc
+# mod means it will log all the ddl and dml statements that means insert, update, delete etc along with ddl
+# all means it will log all the statements
+log_statment = 'all'
+```
+
+- Other than that, I've continued with the test fixes and worked on `test_credit_audit.py` tests today. They mostly consists of survey_charge_history_log tests and the charge_history endpoint tests.
