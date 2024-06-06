@@ -65,3 +65,23 @@ log_statment = 'all'
 ```
 
 - Other than that, I've continued with the test fixes and worked on `test_credit_audit.py` tests today. They mostly consists of survey_charge_history_log tests and the charge_history endpoint tests.
+
+## 31 May 2024
+
+- new weird bug happened today, we usually use `$@` in bash to get the arguments in the script for passing the cron to the elastic beanstalk cron config. But one of our command had a flag along with the command and it was failing because of that. The solution we relied on was to use double quotes but it didn't work. Instead of using the `@*` or `"$@"` we went ahead with just using the simple file name for redirection and then passing the arguments in our docker command. For more info, do check the change: `https://github.com/mat-technology/rpr/pull/3451/files#diff-0e3c6507571f6bb67b93fbe899beb80e2050a5f53d3021489dcb344178d30265R54`
+
+- Also, went through one lambdaconf video today related to learning clojure: `https://www.youtube.com/watch?v=91jmzgW7brc` which was quite interesting as it says it took almost 450 Hours to learn clojure.
+
+## 3 June 2024
+
+- on hold action of the survey, the forecast date of charges is shifted to 3 months ahead from the date it's been forecasted
+
+## 5 June 2024
+
+- Solution stack and most of the module data which keep changing in the terraform modules can be obtained via data sources in terraform. We can use the `aws_elastic_beanstalk_solution_stack` data source to get the solution stack and use it in the `aws_elastic_beanstalk_environment` resource.
+
+## 6 June 2024
+
+- AWS service quota are little bit tricky, there are some quota which are automatic and some are manual. The automatic quota are the one which are managed by AWS and they're automatically increased when needed(need to put on request in sometime they'll be approved more or less in 30 mins). The manual quota are little pesky as you've to wait for them.
+
+- Peering connection of vpcs also requires the route table associations as well so that the traffic can flow between the vpcs, need to keep that in mind.
